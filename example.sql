@@ -5,10 +5,7 @@
 -- Metadata JSON format: {"name":<query name>, "param_mode":<parameters mode>}
 -- <query name> is a valid indentifier string;
 -- <parameters mode> is one of "NONE", "NAMED" or "POSITIONAL"
-
 -- See the example below
-
-
 
 -- No parameters, param_mode is NONE
 --! {"name":"Ruffus", "param_mode":"NONE"}

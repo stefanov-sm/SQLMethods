@@ -15,7 +15,7 @@ class SQLMethods
         $query_object = (object)['query' => ''];
         $query_name = null;
 
-        $sqlfile = @ fopen($sql_filename, 'r');
+        $sqlfile = @fopen($sql_filename, 'r');
         if (!$sqlfile)
         {
             throw new Exception("SmartSQL: SQL file {$sql_filename} failed to open");

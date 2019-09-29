@@ -3,7 +3,7 @@ Lightweight PHP class with no dependencies that dynamically exposes methods defi
 Separation of concerns inspired by __Dimitri Fontaine__'s posts and ***YeSQL***.
 The CLI example has all that matters.
 ```
->php example.php
+D:\devel\SQLMethods>php example.php
 10 CXXXIII
 11 CXXXIV
 12 CXXXV
@@ -22,5 +22,4 @@ The CLI example has all that matters.
 
 18 CCCLXIII
 19 CCCLXIV
-20 CCCLXV
-```
+20 CCCLXV```

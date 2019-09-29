@@ -2,7 +2,7 @@
 // Example/unit test
 require ('SQLMethods.class.php'); // Use your preferred class loading mechanism
 
-$conn = new PDO('pgsql:host=192.168.0.133;port=5432;dbname=playground', 'postgres', 'sa', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+$conn = new PDO('pgsql:host=<host name or IP address>;port=<port>;dbname=<database name>', 'dbUser', 'dbPassword', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 $osql = new SQLMethods('example.sql', $conn);
 
 // -----------------------------------------------------------------------------

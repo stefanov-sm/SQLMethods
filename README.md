@@ -3,14 +3,6 @@ Lightweight PHP class with no dependencies to dynamically expose methods defined
 Clean separation of concerns inspired by [this](https://www.youtube.com/watch?v=q9IXCdy_mtY) talk and **YeSQL**.
 Al that matters is there in the PHP CLI example.
 
-```
-There are two ways of constructing a software design:
-One way is to make it so simple that there are obviously no deficiencies, and
-the other way is to make it so complicated that there are no obvious deficiencies.
-The first method is far more difficult.
-Sir Tony Hoare
-```
-
 Queries have names that become methods' names.  
 ### File _example.sql_
 

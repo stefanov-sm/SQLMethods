@@ -4,7 +4,7 @@ Clean separation of concerns inspired by [this](https://www.youtube.com/watch?v=
 Al that matters is there in the PHP CLI example.
 
 Queries have names that become methods' names.  
-File _example.sql_
+###File _example.sql_
 
 ``` SQL
 -- SQLMethods example SQL file
@@ -40,20 +40,20 @@ SELECT v, to_char(345 + v, 'FMRN') AS rn
 
 - **Methods return** a [PDOStatement](https://www.php.net/manual/en/class.pdostatement.php) object.
 
-## Service generator constructor
+### SQLMethods constructor
 
 A SQLMethods object is created by instantiating the `SQLMethods` class.  
 `SQLMethods::__construct(<sql file name>, optional <PDO connection>);`
  - `<sql file name>` - qualified file name of the SQL file (as the one above)
  - `<PDO connection>>` - existing PDO connection object
 
-## Connection getter/setter method
+### Connection getter/setter method
 
 `SQLMethods::connection(optional <PDO connection>);`
  - `<PDO connection>>` - existing PDO connection object
  - returns the current connection or NULL if none exisits
 
-Usage (PHP CLI) in file _example.php_  
+### Usage (PHP CLI) in file _example.php_  
 ``` PHP
 <?php
 // Example/unit test
@@ -87,7 +87,7 @@ $result = $osql -> Buster([':hi' => 17, ':lo' => 15]);
 $result = $osql -> Gracie(18, 20);  
 ```
 
-Here is the modest result.  
+###Here is the modest result.  
 ```
 D:\devel\SQLMethods>php example.php
 10 CXXXIII

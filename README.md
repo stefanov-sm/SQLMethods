@@ -63,7 +63,7 @@ A SQLMethods object is created by instantiating the `SQLMethods` class.
 <?php
 // Example/unit test
 require ('SQLMethods.class.php'); // Or use your preferred class loading mechanism
-$conn = new PDO('pgsql:host=<host name or IP address>;port=<port>;dbname=<database name>', '<dbUser>', '<dbPassword>', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+$conn = new PDO('pgsql:<connection details>', '<user>', '<password>', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 $osql = new SQLMethods('example.sql', $conn);
 // -----------------------------------------------------------------------------
 // helper

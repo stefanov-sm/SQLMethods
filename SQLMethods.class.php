@@ -18,7 +18,7 @@ class SQLMethods
         $sqlfile = @fopen($sql_filename, 'r');
         if (!$sqlfile)
         {
-            throw new Exception("SmartSQL: SQL file {$sql_filename} failed to open");
+            throw new Exception("SQLMethods: SQL file {$sql_filename} failed to open");
         }
         $linenumber = 0;
         while (($line = fgets($sqlfile)) !== FALSE)
@@ -37,7 +37,7 @@ class SQLMethods
                     !in_array($query_parameters -> param_mode, [self::PARAM_NONE, self::PARAM_NAMED, self::PARAM_POSITIONAL])
                 )
                 {
-                    throw new Exception("SmartSQL: Bad query definition header, file '{$sql_filename}', line {$linenumber}");
+                    throw new Exception("SQLMethods: Bad query definition header, file '{$sql_filename}', line {$linenumber}");
                 }
                 if (!is_null($query_name))
                 {
@@ -76,7 +76,7 @@ class SQLMethods
     {
         if (!isset($this -> qlist -> $function_name))
         {
-            throw new Exception("SmartSQL: Method (query) '{$function_name}' not defined");
+            throw new Exception("SQLMethods: Method (query) '{$function_name}' not defined");
         }
 
         $qdef = $this -> qlist -> $function_name;

@@ -41,7 +41,7 @@ class SQLMethods
                 }
                 if (!is_null($query_name))
                 {
-                    $this -> qlist -> $query_name = $query_object;
+                    $this -> qlist -> {strtoupper($query_name)} = $query_object;
                     $query_object = (object)['query' => ''];
                 }
                 $query_name = $query_parameters -> name;
@@ -58,7 +58,7 @@ class SQLMethods
 
         if (!is_null($query_name))
         {
-            $this -> qlist -> $query_name = $query_object;
+            $this -> qlist -> {strtoupper($query_name)} = $query_object;
         }
     }
 
@@ -74,6 +74,7 @@ class SQLMethods
 
     public function __call($function_name, $arguments = null)
     {
+    	$function_name = strtoupper($function_name);
         if (!isset($this -> qlist -> $function_name))
         {
             throw new Exception("SQLMethods: Method (query) '{$function_name}' not defined");

@@ -17,7 +17,7 @@ Individual queries have names (Ruffus, Buster, Gracie in the example below) that
 -- See the example below
 
 -- No parameters, param_mode is NONE
---! {"name":"Ruffus", "param_mode":"NONE"}
+--! {"name":"RUFFUS", "param_mode":"NONE"}
 SELECT v, to_char(123 + v, 'FMRN') AS rn
  FROM generate_series (10, 12, 1) AS t(v);
 
@@ -86,7 +86,8 @@ show($result);
 $result = $osql -> Gracie(18, 20);
 show($result);
 ```
-- Queries are now **methods** of the SQLMethods instance.  
+- Queries are now **methods** of the SQLMethods instance.
+- Query/method names are case-insensitive as it is common in SQL.
 ```
 $result = $osql -> Ruffus();  
 $result = $osql -> Buster([':hi' => 17, ':lo' => 15]);  

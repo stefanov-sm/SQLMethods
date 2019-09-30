@@ -33,7 +33,7 @@ SELECT v, to_char(345 + v, 'FMRN') AS rn
 ```
 - Note these query definition header lines that provide a name and parameters' mode value to each query:  
 ```
---! {"name":"Ruffus", "param_mode":"NONE"}  
+--! {"name":"RUFFUS", "param_mode":"NONE"}  
 --! {"name":"Buster", "param_mode":"NAMED"}  
 --! {"name":"Gracie", "param_mode":"POSITIONAL"}
 ```

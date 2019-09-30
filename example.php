@@ -16,7 +16,7 @@ $result = $osql -> Ruffus();
 show($result);
 
 // named parameters
-$result = $osql -> Buster([':hi' => 20, ':lo' => 18]);
+$result = $osql -> Buster([':hi' => 17, ':lo' => 15]);
 show($result);
 
 // positional parameters

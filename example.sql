@@ -10,7 +10,7 @@
 -- No parameters, param_mode is NONE
 --! {"name":"Ruffus", "param_mode":"NONE"}
 SELECT v, to_char(123 + v, 'FMRN') AS rn
- FROM generate_series (10, 20, 1) AS t(v);
+ FROM generate_series (10, 10, 1) AS t(v);
 
 -- Named parameters, param_mode is NAMED
 --! {"name":"Buster", "param_mode":"NAMED"}

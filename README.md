@@ -39,6 +39,8 @@ SELECT v, to_char(345 + v, 'FMRN') AS rn
 ```
 
 - Each query definition header consists of a single line that starts with `--!` prefix followed by a JSON expression with exactly these attributes: `"name"` and `"param_mode"`.
+- "param_mode" value must be one of "NONE", "NAMED" or "POSITIONAL". The semantics of those are best seen in the example.
+- "name" value must be a valid K&R-style identifier.
 - Real-life queries may be of any size and complexity. Block comments are not supported.
 - Methods return [PDOStatement](https://www.php.net/manual/en/class.pdostatement.php) objects.  
 

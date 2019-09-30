@@ -64,7 +64,7 @@ This particular example uses [PostgreSQL](https://www.postgresql.org/) PDO conne
 <?php
 // Example/unit test
 require ('SQLMethods.class.php'); // Or use your preferred class loading mechanism
-$conn = new PDO('pgsql:<connection details>', '<user>', '<password>', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+$conn = new PDO('pgsql:<connection data>', '<user>', '<password>', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 $osql = new SQLMethods('example.sql', $conn);
 // -----------------------------------------------------------------------------
 // helper

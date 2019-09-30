@@ -40,6 +40,19 @@ SELECT v, to_char(345 + v, 'FMRN') AS rn
 
 - **Methods return** a [PDOStatement](https://www.php.net/manual/en/class.pdostatement.php) object.
 
+## Service generator constructor
+
+A SQLMethods object is created by instantiating the `SQLMethods` class.  
+`SQLMethods::__construct(<sql file name>, optional <PDO connection>);`
+ - `<sql file name>` - qualified file name of the SQL file (as the one above)
+ - `<PDO connection>>` - existing PDO connection object
+
+## Connection getter/setter method
+
+`SQLMethods::connection(optional <PDO connection>);`
+ - `<PDO connection>>` - existing PDO connection object
+ - returns the current connection or NULL if none exisits
+
 Usage (PHP CLI) in file _example.php_  
 ``` PHP
 <?php

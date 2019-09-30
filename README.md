@@ -19,7 +19,7 @@ File _example.sql_
 -- No parameters, param_mode is NONE
 --! {"name":"Ruffus", "param_mode":"NONE"}
 SELECT v, to_char(123 + v, 'FMRN') AS rn
- FROM generate_series (10, 20, 1) AS t(v);
+ FROM generate_series (10, 12, 1) AS t(v);
 
 -- Named parameters, param_mode is NAMED
 --! {"name":"Buster", "param_mode":"NAMED"}
@@ -60,7 +60,7 @@ $result = $osql -> Ruffus();
 show($result);
 
 // named parameters
-$result = $osql -> Buster([':hi' => 20, ':lo' => 18]);
+$result = $osql -> Buster([':hi' => 17, ':lo' => 15]);
 show($result);
 
 // positional parameters

@@ -4,7 +4,7 @@ Clean separation of concerns inspired by [this](https://www.youtube.com/watch?v=
 Al that matters is there in the PHP CLI example.
 
 Queries have names that become methods' names.  
-File (**example.sql**)
+File **example.sql**
 
 ``` SQL
 -- SQLMethods example SQL file
@@ -31,13 +31,14 @@ SELECT v, to_char(234 + v, 'FMRN') AS rn
 SELECT v, to_char(345 + v, 'FMRN') AS rn
  FROM generate_series (?, ?, 1) AS t(v);
 ```
-**Note these lines that provide a name and parameters' mode to the each query:**  
+**Note these lines that provide a name and parameters' mode value to each query:**  
 
 **--! {"name":"Ruffus", "param_mode":"NONE"}  
 --! {"name":"Buster", "param_mode":"NAMED"}  
 --! {"name":"Gracie", "param_mode":"POSITIONAL"}**
 
-How to use (PHP CLI): 
+Usage (PHP CLI). File **example.php**
+
 
 ```
 D:\devel\SQLMethods>php example.php

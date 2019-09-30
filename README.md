@@ -65,6 +65,11 @@ show($result);
 $result = $osql -> Gracie(18, 20);
 show($result);
 ```
+- Queries are now **methods** of the SQLMethods instance.  
+$result = $osql -> Ruffus();
+$result = $osql -> Buster([':hi' => 20, ':lo' => 18]);
+$result = $osql -> Gracie(18, 20);
+
 Here is the modest result.  
 ```
 D:\devel\SQLMethods>php example.php

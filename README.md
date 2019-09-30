@@ -4,7 +4,7 @@ Clean separation of concerns inspired by [this](https://www.youtube.com/watch?v=
 Al that matters is there in the PHP CLI example.
 
 Queries have names that become methods' names.  
-File **example.sql**
+File _example.sql_
 
 ``` SQL
 -- SQLMethods example SQL file
@@ -38,7 +38,7 @@ SELECT v, to_char(345 + v, 'FMRN') AS rn
 
 Methods return a [PDOStatement](https://www.php.net/manual/en/class.pdostatement.php) object.
 
-Usage (PHP CLI) in file **example.php**
+Usage (PHP CLI) in file _example.php_
 
 
 ```

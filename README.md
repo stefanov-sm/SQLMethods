@@ -3,7 +3,7 @@ Lightweight PHP class with no dependencies to dynamically expose methods defined
 Clean separation of concerns inspired by [this](https://www.youtube.com/watch?v=q9IXCdy_mtY) talk and **YeSQL**.
 Al that matters is there in the PHP CLI example.
 
-Queries have names that become methods' names.
+Individual queries have names (Ruffus, Buster, Gracie in the example) that become methods' names.
 ### File _example.sql_
 
 ```SQL

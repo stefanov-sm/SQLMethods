@@ -16,7 +16,7 @@ Queries that become methods. The SQL file:
 -- See the example below
 
 -- No parameters, param_mode is NONE
---! {"name":"Ruffus", "param_mode":"NONE"}
+__--! {"name":"Ruffus", "param_mode":"NONE"}__
 SELECT v, to_char(123 + v, 'FMRN') AS rn
  FROM generate_series (10, 20, 1) AS t(v);
 

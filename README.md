@@ -32,12 +32,13 @@ SELECT v, to_char(345 + v, 'FMRN') AS rn
  FROM generate_series (?, ?, 1) AS t(v);
 ```
 **Note these lines that provide a name and parameters' mode value to each query:**  
-
-**--! {"name":"Ruffus", "param_mode":"NONE"}  
+--! {"name":"Ruffus", "param_mode":"NONE"}  
 --! {"name":"Buster", "param_mode":"NAMED"}  
---! {"name":"Gracie", "param_mode":"POSITIONAL"}**
+--! {"name":"Gracie", "param_mode":"POSITIONAL"}
 
-Usage (PHP CLI). File **example.php**
+Methods return a [PDOStatement](https://www.php.net/manual/en/class.pdostatement.php) object.
+
+Usage (PHP CLI) in file **example.php**
 
 
 ```

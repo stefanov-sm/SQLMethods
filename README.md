@@ -2,6 +2,12 @@
 Lightweight PHP class with no dependencies that dynamically exposes methods defined as queries in a SQL file.<br/>
 Clean separation of concerns inspired by [this](https://www.youtube.com/watch?v=q9IXCdy_mtY) talk and __YeSQL__.
 The CLI example has all that matters.
+
+Queriws that become methods
+The SQL file:
+
+How to use: 
+
 ```
 D:\devel\SQLMethods>php example.php
 10 CXXXIII

@@ -5,7 +5,7 @@ class SQLMethods
     const   PARAM_NONE = 'NONE', PARAM_NAMED = 'NAMED', PARAM_POSITIONAL = 'POSITIONAL';
     const   QUERY_DEF_HEADER_RX = '/^--!(.*)$/i',
             QUERY_IDENT_RX = '/^[a-z_]\w{2,31}$/i',
-            SQL_COMMENT_RX = '/^\s*--/';
+            IGNORE_LINE_RX = '/(^\s*--([^!]|$))|(^\s*$)/';
     private $conn, $qlist;
 
     public function __construct($sql_filename, $conn = null)
@@ -24,7 +24,7 @@ class SQLMethods
         while (($line = fgets($sqlfile)) !== FALSE)
         {
             $linenumber++;
-            if (trim($line) == '') continue;
+            if (preg_match(self::IGNORE_LINE_RX, $line)) continue;
 
             if (preg_match(self::QUERY_DEF_HEADER_RX, $line, $result))
             {
@@ -49,7 +49,7 @@ class SQLMethods
                 continue;
             }
 
-            if (!is_null($query_name) && !preg_match(self::SQL_COMMENT_RX, $line))
+            if (!is_null($query_name))
             {
                 $query_object -> query .= $line;
             }

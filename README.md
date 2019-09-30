@@ -38,7 +38,8 @@ SELECT v, to_char(345 + v, 'FMRN') AS rn
 --! {"name":"Gracie", "param_mode":"POSITIONAL"}
 ```
 
-- **Methods return** [PDOStatement](https://www.php.net/manual/en/class.pdostatement.php) objects.
+- **Methods return** [PDOStatement](https://www.php.net/manual/en/class.pdostatement.php) objects.  
+- Real-life queries may be of any complexity and size. Block comments are not supported.
 
 ### SQLMethods constructor
 

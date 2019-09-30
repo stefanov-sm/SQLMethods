@@ -50,7 +50,7 @@ A SQLMethods object is created by instantiating the `SQLMethods` class.
 ### Connection getter/setter method
 
 `SQLMethods::connection(optional <PDO connection>);`
- - `<PDO connection>>` - existing PDO connection object
+ - `<PDO connection>` - existing PDO connection object
  - returns the current connection or NULL if none exisits
 
 ### Usage (PHP CLI) in file _example.php_  

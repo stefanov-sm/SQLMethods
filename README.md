@@ -52,7 +52,7 @@ A SQLMethods object is created by instantiating the `SQLMethods` class.
  - `<sql file name>` - name of the SQL file (as the one above)
  - `<PDO connection>` - existing PDO connection object
 
-### Connection getter/setter method
+### Connection getter/setter
 
 `SQLMethods::connection(optional <PDO connection>)`
  - `<PDO connection>` - existing PDO connection object

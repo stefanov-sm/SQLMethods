@@ -48,7 +48,6 @@ class SQLMethods
                 $query_object -> parameterized = $query_parameters -> param_mode;
                 continue;
             }
-
             if (!is_null($query_name))
             {
                 $query_object -> query .= $line;

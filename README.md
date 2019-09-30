@@ -59,6 +59,7 @@ A SQLMethods object is created by instantiating the `SQLMethods` class.
  - returns the current connection or NULL
 
 ### Usage (PHP CLI) in file _example.php_  
+This particular example uses [PostgreSQL](https://www.postgresql.org/) PDO connection.
 ```PHP
 <?php
 // Example/unit test

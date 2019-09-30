@@ -31,7 +31,7 @@ SELECT v, to_char(345 + v, 'FMRN') AS rn
  FROM generate_series (?, ?, 1) AS t(v);
 ```
 ***Note these lines that provide a name and parameters' mode to the each query:***  
-__
+__  
 --! {"name":"Ruffus", "param_mode":"NONE"}  
 --! {"name":"Buster", "param_mode":"NAMED"}  
 --! {"name":"Gracie", "param_mode":"POSITIONAL"}__

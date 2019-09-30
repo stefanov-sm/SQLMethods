@@ -4,6 +4,7 @@ Clean separation of concerns inspired by [this](https://www.youtube.com/watch?v=
 Al that matters is there in the PHP CLI example.
 
 Queries have names that become methods' names.  
+
 ###File _example.sql_
 
 ``` SQL
@@ -86,7 +87,7 @@ $result = $osql -> Ruffus();
 $result = $osql -> Buster([':hi' => 17, ':lo' => 15]);  
 $result = $osql -> Gracie(18, 20);  
 ```
-
+   
 ###Here is the modest result.  
 ```
 D:\devel\SQLMethods>php example.php

@@ -8,7 +8,7 @@
 -- See the example below
 
 -- No parameters, param_mode is NONE
---! {"name":"Ruffus", "param_mode":"NONE"}
+--! {"name":"RUFFUS", "param_mode":"NONE"}
 SELECT v, to_char(123 + v, 'FMRN') AS rn
  FROM generate_series (10, 12, 1) AS t(v);
 

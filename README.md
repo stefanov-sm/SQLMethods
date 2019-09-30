@@ -16,7 +16,7 @@ Queries that become methods. The SQL file:
 -- See the example below
 
 -- No parameters, param_mode is NONE
-__--! {"name":"Ruffus", "param_mode":"NONE"}__
+--! {"name":"Ruffus", "param_mode":"NONE"}
 SELECT v, to_char(123 + v, 'FMRN') AS rn
  FROM generate_series (10, 20, 1) AS t(v);
 
@@ -30,6 +30,10 @@ SELECT v, to_char(234 + v, 'FMRN') AS rn
 SELECT v, to_char(345 + v, 'FMRN') AS rn
  FROM generate_series (?, ?, 1) AS t(v);
 ```
+***Note these lines that provide a name and parameters mode to the queries:***
+__--! {"name":"Ruffus", "param_mode":"NONE"}
+--! {"name":"Buster", "param_mode":"NAMED"}
+--! {"name":"Gracie", "param_mode":"POSITIONAL"}__
 
 How to use (PHP CLI): 
 

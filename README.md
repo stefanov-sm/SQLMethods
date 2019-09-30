@@ -32,9 +32,11 @@ SELECT v, to_char(345 + v, 'FMRN') AS rn
  FROM generate_series (?, ?, 1) AS t(v);
 ```
 - **Note these lines*** that provide a name and parameters' mode value to each query:  
+```
 --! {"name":"Ruffus", "param_mode":"NONE"}  
 --! {"name":"Buster", "param_mode":"NAMED"}  
 --! {"name":"Gracie", "param_mode":"POSITIONAL"}
+```
 
 - **Methods return** a [PDOStatement](https://www.php.net/manual/en/class.pdostatement.php) object.
 
@@ -66,9 +68,11 @@ $result = $osql -> Gracie(18, 20);
 show($result);
 ```
 - Queries are now **methods** of the SQLMethods instance.  
+```
 $result = $osql -> Ruffus();  
 $result = $osql -> Buster([':hi' => 20, ':lo' => 18]);  
 $result = $osql -> Gracie(18, 20);  
+```
 
 Here is the modest result.  
 ```

@@ -45,13 +45,13 @@ SELECT v, to_char(345 + v, 'FMRN') AS rn
 ### SQLMethods constructor
 
 A SQLMethods object is created by instantiating the `SQLMethods` class.  
-`SQLMethods::__construct(<sql file name>, optional <PDO connection>);`
+`SQLMethods::__construct(<sql file name>, optional <PDO connection>)`
  - `<sql file name>` - name of the SQL file (as the one above)
  - `<PDO connection>` - existing PDO connection object
 
 ### Connection getter/setter method
 
-`SQLMethods::connection(optional <PDO connection>);`
+`SQLMethods::connection(optional <PDO connection>)`
  - `<PDO connection>` - existing PDO connection object
  - returns the current connection or NULL if none exisits
 

@@ -1,6 +1,6 @@
 # SQL Methods
 Lightweight PHP class with no dependencies to dynamically expose methods defined as queries in a SQL file.<br/>
-Clean separation of concerns inspired by [this](https://www.youtube.com/watch?v=q9IXCdy_mtY) talk and __YeSQL__.
+Clean separation of concerns inspired by [this](https://www.youtube.com/watch?v=q9IXCdy_mtY) talk and **YeSQL**.
 Al that matters is there in the PHP CLI example.
 
 Queries have names that become methods' names.  
@@ -31,7 +31,7 @@ SELECT v, to_char(234 + v, 'FMRN') AS rn
 SELECT v, to_char(345 + v, 'FMRN') AS rn
  FROM generate_series (?, ?, 1) AS t(v);
 ```
-- **Note these query definition header lines** that provide a name and parameters' mode value to each query:  
+- Note these query definition header lines that provide a name and parameters' mode value to each query:  
 ```
 --! {"name":"Ruffus", "param_mode":"NONE"}  
 --! {"name":"Buster", "param_mode":"NAMED"}  

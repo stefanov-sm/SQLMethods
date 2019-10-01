@@ -63,13 +63,10 @@ This particular example uses [PostgreSQL](https://www.postgresql.org/) PDO conne
 ```PHP
 <?php
 // Example/unit test
-
-// display helper
-function show($rs) {
+function show($rs) { // display helper
     foreach ($rs as $rec) echo sprintf('%s %s'.PHP_EOL, $rec[0], $rec[1]);
     echo PHP_EOL;
 }
-
 require ('SQLMethods.class.php'); // Use your preferred class loading mechanism
 $conn = new PDO (
     'pgsql:host=<host name or IP address>;port=<port>;dbname=<database name>',

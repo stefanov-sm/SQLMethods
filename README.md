@@ -63,16 +63,21 @@ This particular example uses [PostgreSQL](https://www.postgresql.org/) PDO conne
 ```PHP
 <?php
 // Example/unit test
-require ('SQLMethods.class.php'); // Or use your preferred class loading mechanism
-$conn = new PDO('pgsql:<connection data>', '<user>', '<password>', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-$osql = new SQLMethods('example.sql', $conn);
-// -----------------------------------------------------------------------------
-// helper
-function show($rs)
-{
-	foreach ($rs as $rec) echo sprintf('%s %s'.PHP_EOL, $rec['v'], $rec['rn']);
-	echo PHP_EOL;
+
+// display helper
+function show($rs) {
+    foreach ($rs as $rec) echo sprintf('%s %s'.PHP_EOL, $rec[0], $rec[1]);
+    echo PHP_EOL;
 }
+
+require ('SQLMethods.class.php'); // Use your preferred class loading mechanism
+$conn = new PDO (
+    'pgsql:host=<host name or IP address>;port=<port>;dbname=<database name>',
+    '<dbUser>', '<dbPassword>',
+    [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_EMULATE_PREPARES => FALSE]
+);
+$osql = new SQLMethods('example.sql');
+$osql -> connection($conn);
 // -----------------------------------------------------------------------------
 // no parameters
 $result = $osql -> Ruffus();

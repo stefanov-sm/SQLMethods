@@ -18,18 +18,18 @@ Individual queries have names (Ruffus, Buster, Gracie in the example below) that
 
 -- No parameters
 --! {"name":"RUFFUS", "param_mode":"NONE"}
-SELECT v, to_char(123 + v, 'FMRN') AS rn
- FROM generate_series (10, 12, 1) AS t(v);
+SELECT v, to_char(123 + v, 'FMRN')
+ FROM generate_series (10, 12, 1) t(v);
 
 -- Named parameters
 --! {"name":"Buster", "param_mode":"NAMED"}
-SELECT v, to_char(234 + v, 'FMRN') AS rn
- FROM generate_series (:lo, :hi, 1) AS t(v);
+SELECT v, to_char(234 + v, 'FMRN')
+ FROM generate_series (:lo, :hi, 1) t(v);
 
 -- Positional parameters
 --! {"name":"Gracie", "param_mode":"POSITIONAL"}
-SELECT v, to_char(345 + v, 'FMRN') AS rn
- FROM generate_series (?, ?, 1) AS t(v);
+SELECT v, to_char(345 + v, 'FMRN')
+ FROM generate_series (?, ?, 1) t(v);
 ```
 - Note these query definition header lines that provide a name and parameters' mode value to each query:  
 ```

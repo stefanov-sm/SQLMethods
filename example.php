@@ -3,7 +3,7 @@
 
 // display helper
 function show($rs) {
-    foreach ($rs as $rec) echo sprintf('%s %s'.PHP_EOL, $rec['v'], $rec['rn']);
+    foreach ($rs as $rec) echo sprintf('%s %s'.PHP_EOL, $rec[0], $rec[1]);
     echo PHP_EOL;
 }
 

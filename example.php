@@ -1,12 +1,18 @@
 <?php
 // Example/unit test
 require ('SQLMethods.class.php'); // Use your preferred class loading mechanism
-$conn = new PDO('pgsql:host=<host name or IP address>;port=<port>;dbname=<database name>', '<dbUser>', '<dbPassword>', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-$osql = new SQLMethods('example.sql', $conn);
+$conn = new PDO (
+    'pgsql:host=<host name or IP address>;port=<port>;dbname=<database name>',
+    '<dbUser>', '<dbPassword>',
+    [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_EMULATE_PREPARES => FALSE]
+);
+
+$osql = new SQLMethods('example.sql');
+$osql -> connection($conn);
+
 // -----------------------------------------------------------------------------
 // helper
-function show($rs)
-{
+function show($rs) {
 	foreach ($rs as $rec) echo sprintf('%s %s'.PHP_EOL, $rec['v'], $rec['rn']);
 	echo PHP_EOL;
 }

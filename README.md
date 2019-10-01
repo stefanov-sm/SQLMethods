@@ -89,6 +89,7 @@ $result = $osql -> Gracie(18, 20);
 show($result);
 ```
 - Queries are now **methods** of the SQLMethods instance.
+- Colon prefixes of parameters' names [may be considered optional](https://stackoverflow.com/questions/17386469/pdo-prepared-statement-what-are-colons-in-parameter-names-used-for).
 - Query/method names are case-insensitive as it is common in SQL (Ruffus in the example).
    
 ### Here is the modest result.  

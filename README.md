@@ -77,8 +77,7 @@ $conn = new PDO (
     [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_EMULATE_PREPARES => FALSE]
 );
 // -----------------------------------------------------------------------------
-$osql = new SQLMethods('example.sql');
-$osql -> connection($conn);
+$osql = new SQLMethods('example.sql', $conn);
 
 // no parameters
 $result = $osql -> Ruffus();

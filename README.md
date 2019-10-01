@@ -93,11 +93,6 @@ show($result);
 ```
 - Queries are now **methods** of the SQLMethods instance.
 - Query/method names are case-insensitive as it is common in SQL (Ruffus in the example).
-```
-$result = $osql -> Ruffus();  
-$result = $osql -> Buster([':hi' => 17, ':lo' => 15]);  
-$result = $osql -> Gracie(18, 20);  
-```
    
 ### Here is the modest result.  
 ```

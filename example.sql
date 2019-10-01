@@ -7,17 +7,17 @@
 -- <parameters mode> is one of "NONE", "NAMED" or "POSITIONAL"
 -- See the example below
 
--- No parameters, param_mode is NONE
+-- No parameters
 --! {"name":"RUFFUS", "param_mode":"NONE"}
 SELECT v, to_char(123 + v, 'FMRN') AS rn
  FROM generate_series (10, 12, 1) AS t(v);
 
--- Named parameters, param_mode is NAMED
+-- Named parameters
 --! {"name":"Buster", "param_mode":"NAMED"}
 SELECT v, to_char(234 + v, 'FMRN') AS rn
  FROM generate_series (:lo, :hi, 1) AS t(v);
 
--- Positional parameters, param_mode is POSITIONAL
+-- Positional parameters
 --! {"name":"Gracie", "param_mode":"POSITIONAL"}
 SELECT v, to_char(345 + v, 'FMRN') AS rn
  FROM generate_series (?, ?, 1) AS t(v);

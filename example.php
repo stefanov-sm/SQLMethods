@@ -1,7 +1,7 @@
 <?php
 // Example/unit test
 
-// helper
+// display helper
 function show($rs) {
     foreach ($rs as $rec) echo sprintf('%s %s'.PHP_EOL, $rec['v'], $rec['rn']);
     echo PHP_EOL;

@@ -73,7 +73,7 @@ class SQLMethods
 
     public function __call($function_name, $arguments = null)
     {
-    	$function_name = strtoupper($function_name);
+        $function_name = strtoupper($function_name);
         if (!isset($this -> qlist -> $function_name))
         {
             throw new Exception("SQLMethods: Method (query) '{$function_name}' not defined");
@@ -106,18 +106,18 @@ class SQLMethods
 
     public function dump_rs($rs)
     {
-    	$retvalArray = [];
-   		foreach($rs as $rec)
-		{
-			foreach($rec as $key => $value)
-			{
-				if (!is_numeric($key))
-				{
-					$retvalArray[] = "$key: $value";
-				}
-			}
-			$retvalArray[] = PHP_EOL;
-		}
-		return implode(PHP_EOL, $retvalArray);
+        $retvalArray = [];
+        foreach($rs as $rec)
+        {
+            foreach($rec as $key => $value)
+            {
+                if (!is_numeric($key))
+                {
+                    $retvalArray[] = "$key: $value";
+                }
+            }
+            $retvalArray[] = PHP_EOL;
+        }
+        return implode(PHP_EOL, $retvalArray);
     }
 }

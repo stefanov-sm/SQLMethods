@@ -103,4 +103,21 @@ class SQLMethods
     {
         return print_r($this -> qlist, TRUE);
     }
+
+    public function dump_rs($rs)
+    {
+    	$retvalArray = [];
+   		foreach($rs as $rec)
+		{
+			foreach($rec as $key => $value)
+			{
+				if (!is_numeric($key))
+				{
+					$retvalArray[] = "$key: $value";
+				}
+			}
+			$retvalArray[] = PHP_EOL;
+		}
+		return implode(PHP_EOL, $retvalArray);
+    }
 }

@@ -1,9 +1,5 @@
 <?php
 // Example/unit test
-function show($rs) { // display helper
-    foreach ($rs as $rec) echo sprintf('%s %s'.PHP_EOL, $rec[0], $rec[1]);
-    echo PHP_EOL;
-}
 require ('SQLMethods.class.php'); // Use your preferred class loading mechanism
 $conn = new PDO (
     'pgsql:host=<host name or IP address>;port=<port>;dbname=<database name>',
@@ -15,12 +11,12 @@ $osql = new SQLMethods('example.sql', $conn);
 
 // no parameters
 $result = $osql -> Ruffus();
-show($result);
+echo $osql -> dump_rs($result).PHP_EOL;
 
 // named parameters
 $result = $osql -> Buster([':hi' => 17, ':lo' => 15]);
-show($result);
+echo $osql -> dump_rs($result).PHP_EOL;
 
 // positional parameters
 $result = $osql -> Gracie(18, 20);
-show($result);
+echo $osql -> dump_rs($result).PHP_EOL;

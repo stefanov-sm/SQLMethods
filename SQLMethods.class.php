@@ -113,11 +113,10 @@ class SQLMethods
             {
                 if (!is_numeric($key))
                 {
-                    $retvalArray[] = "$key: $value";
+                    $retvalArray[] = "$key: $value".PHP_EOL;
                 }
             }
-            $retvalArray[] = PHP_EOL;
-        }
-        return implode(PHP_EOL, $retvalArray);
+       }
+       return implode('', $retvalArray);
     }
 }

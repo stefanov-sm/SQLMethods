@@ -95,16 +95,25 @@ show($result);
 ### Here is the modest result.  
 ```
 D:\devel\SQLMethods>php example.php
-10 CXXXIII
-11 CXXXIV
-12 CXXXV
+v: 10
+rn: CXXXIII
+v: 11
+rn: CXXXIV
+v: 12
+rn: CXXXV
 
-15 CCXLIX
-16 CCL
-17 CCLI
+v: 15
+rn: CCXLIX
+v: 16
+rn: CCL
+v: 17
+rn: CCLI
 
-18 CCCLXIII
-19 CCCLXIV
-20 CCCLXV
+v: 18
+rn: CCCLXIII
+v: 19
+rn: CCCLXIV
+v: 20
+rn: CCCLXV
 
 ```

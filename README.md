@@ -65,8 +65,8 @@ This particular example uses [PostgreSQL](https://www.postgresql.org/) PDO conne
 // CLI example/unit test
 require ('SQLMethods.class.php'); // Use your preferred class loading mechanism
 $conn = new PDO (
-    'pgsql:host=192.168.0.133;port=5432;dbname=playground',
-    'postgres', 'sa',
+    'pgsql:host=<host name or IP address>;port=<port>;dbname=<database name>',
+    '<dbUser>', '<dbPassword>',
     [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_EMULATE_PREPARES => FALSE]
 );
 // -----------------------------------------------------------------------------

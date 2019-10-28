@@ -61,6 +61,8 @@ class SQLMethods
         }
     }
 
+    // PDO connection getter/setter
+    // ----------------------------------------------------
     public function connection($conn = null)
     {
         $current_connection = $this -> conn;
@@ -71,6 +73,8 @@ class SQLMethods
         return $current_connection;
     }
 
+    // Dynamic method invocation handler
+    // ----------------------------------------------------
     public function __call($function_name, $arguments = null)
     {
         $function_name = strtoupper($function_name);
@@ -98,25 +102,19 @@ class SQLMethods
         return $rs;
     }
 
-    // For debugging purposes
+    // For testing & debugging purposes
+    // ----------------------------------------------------
     public function __toString()
     {
-        return print_r($this -> qlist, TRUE);
+      return print_r($this -> qlist, TRUE);
     }
 
     public function dump_rs($rs)
     {
-        $retvalArray = [];
-        foreach($rs as $rec)
-        {
-            foreach($rec as $key => $value)
-            {
-                if (!is_numeric($key))
-                {
-                    $retvalArray[] = "$key: $value".PHP_EOL;
-                }
-            }
-       }
-       return implode('', $retvalArray);
+      $retArr = [];
+      foreach($rs as $rec)
+        foreach($rec as $key => $value)
+          if (is_string($key)) $retArr[] = "$key: $value".PHP_EOL;
+      return implode('', $retArr);
     }
 }

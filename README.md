@@ -77,7 +77,7 @@ Parses and imports SQL method definitions.
 This particular example uses [PostgreSQL](https://www.postgresql.org/) PDO connection.
 ```PHP
 <?php
-// SQLMethods example/unit test
+// SQLMethods example
 
 // Use your preferred class loading mechanism
 require ('SQLMethods.class.php');

@@ -89,7 +89,7 @@ $conn = new PDO (
     [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_EMULATE_PREPARES => FALSE]
 );
 
-/* There are different ways to build SQLMethod instances
+/* There are different ways to build SQLMethod instances and inport SQL files
 // Use a single SQL file
 $dbgw = new SQLMethods('example.sql', $conn);
 

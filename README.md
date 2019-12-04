@@ -52,63 +52,72 @@ A SQLMethods object is created by instantiating the `SQLMethods` class.
  - `<sql file name>` - name of the SQL file (as the one above)
  - `<PDO connection>` - existing PDO connection object
 
-### Connection getter/setter
+### SQLMethods instance factory
 
-`SQLMethods::connection(optional <PDO connection>)`
+Static method. Creates and returns a SQLMethods instance object that can be chained.   
+`SQLMethods::createInstance(optional <PDO connection>)`
  - `<PDO connection>` - existing PDO connection object
- - returns the current connection or NULL
+
+### Connection setter
+
+Sets the PDO connection
+`SQLMethods::connection(<PDO connection>)`
+ - `<PDO connection>` - existing PDO connection object
+ - returns the object instance that an be chained
+
+### SQL file importer
+
+Parses and imports SQL method definitions.   
+`SQLMethods::import(<filename>)`
+ - `<filename>` - existing SQL file
+ - returns the object instance that an be chained
+
 
 ### Usage (PHP CLI) in file _example.php_  
 This particular example uses [PostgreSQL](https://www.postgresql.org/) PDO connection.
 ```PHP
 <?php
-// CLI example/unit test
-require ('SQLMethods.class.php'); // Use your preferred class loading mechanism
+// SQLMethods example/unit test
+
+// Use your preferred class loading mechanism
+require ('SQLMethods.class.php');
+
+// Obtain a PDO connection in your preferred way
 $conn = new PDO (
-    'pgsql:host=<host name or IP address>;port=<port>;dbname=<database name>',
-    '<dbUser>', '<dbPassword>',
+    'pgsql:host=172.30.0.10;port=5432;dbname=playground',
+    'phpUser', 'Baba123Meca',
     [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_EMULATE_PREPARES => FALSE]
 );
-// -----------------------------------------------------------------------------
-$osql = new SQLMethods('example.sql', $conn);
 
-// no parameters
-$result = $osql -> Ruffus();
-echo $osql -> dump_rs($result).PHP_EOL;
+/* There are different ways to build SQLMethod instances
+// Use a single SQL file
+$dbgw = new SQLMethods('example.sql', $conn);
 
-// named parameters
-$result = $osql -> Buster([':hi' => 17, ':lo' => 15]);
-echo $osql -> dump_rs($result).PHP_EOL;
+// Use many SQL files
+$dbgw = new SQLMethods;
+$dbgw -> connection($conn);
+$dbgw -> import('none.sql');
+$dbgw -> import('named.sql');
+$dbgw -> import('positional.sql');
+*/
+// Use many SQL files w/ method chaining
+$dbgw = SQLMethods::createInstance($conn)
+ -> import('none.sql')
+ -> import('named.sql')
+ -> import('positional.sql');
 
-// positional parameters
-$result = $osql -> Gracie(18, 20);
-echo $osql -> dump_rs($result).PHP_EOL;
-```
-- Queries are now **methods** of the SQLMethods instance.
-- Colon prefixes of parameters' names [may be considered optional](https://stackoverflow.com/questions/17386469/pdo-prepared-statement-what-are-colons-in-parameter-names-used-for).
-- Query/method names are case-insensitive as it is common in SQL (Ruffus in the example).
-   
-### Here is the modest result.  
-```
-D:\devel\SQLMethods>php example.php
-v: 10
-rn: CXXXIII
-v: 11
-rn: CXXXIV
-v: 12
-rn: CXXXV
+// call a method with no parameters
+$result = $dbgw -> Ruffus();
+echo SQLMethods::dump_rs($result);
+echo PHP_EOL.PHP_EOL;
 
-v: 15
-rn: CCXLIX
-v: 16
-rn: CCL
-v: 17
-rn: CCLI
+// call a method with named parameters
+$result = $dbgw -> Buster([':hi' => 17, ':lo' => 15]);
+echo SQLMethods::dump_rs($result);
+echo PHP_EOL.PHP_EOL;
 
-v: 18
-rn: CCCLXIII
-v: 19
-rn: CCCLXIV
-v: 20
-rn: CCCLXV
+// call a method with positional parameters
+$result = $dbgw -> Gracie(18, 20);
+echo SQLMethods::dump_rs($result);
+echo PHP_EOL.PHP_EOL;
 ```

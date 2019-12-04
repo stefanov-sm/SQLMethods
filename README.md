@@ -120,7 +120,13 @@ $result = $dbgw -> Gracie(18, 20);
 echo SQLMethods::dump_rs($result);
 echo PHP_EOL.PHP_EOL;
 ```
-Here is the modest result  
+Query names become methods. Query/method names are case-insensitive as it is common in SQL.
+```PHP
+$result = $dbgw -> Ruffus();
+$result = $dbgw -> Buster([':hi' => 17, ':lo' => 15]);
+$result = $dbgw -> Gracie(18, 20);
+```
+And here is the modest result.  
 ```
 C:\ ... \SQLMethods>php example.php
 v: 10

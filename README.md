@@ -1,5 +1,5 @@
 # SQLMethods
-Lightweight PHP class with no dependencies to dynamically define methods as queries in a SQL file.<br/>
+Lightweight PHP class with no dependencies to dynamically define methods as queries in SQL files.<br/>
 Clean separation of concerns inspired by [this](https://www.youtube.com/watch?v=q9IXCdy_mtY) talk and **YeSQL**.
 All that matters is there in the PHP CLI example.
 

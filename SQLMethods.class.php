@@ -133,15 +133,9 @@ class SQLMethods
   {
     $retvalArray = [];
     foreach($rs as $running_record)
-    {
       foreach($running_record as $key => $value)
-      {
         if (is_string($key))
-        {
           $retvalArray[] = "{$key}: {$value}";
-        }
-      }
-    }
     return implode(PHP_EOL, $retvalArray);
   }
 }

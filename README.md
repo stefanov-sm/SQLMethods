@@ -84,8 +84,7 @@ require ('SQLMethods.class.php');
 
 // Obtain a PDO connection in your preferred way
 $conn = new PDO (
-    'pgsql:host=172.30.0.10;port=5432;dbname=playground',
-    'phpUser', 'Baba123Meca',
+    '<your connection string>', '<username>', '<password>',
     [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_EMULATE_PREPARES => FALSE]
 );
 

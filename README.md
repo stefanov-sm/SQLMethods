@@ -73,7 +73,7 @@ Parses and imports SQL method definitions.
  - returns the object instance that an be chained
 
 
-### Usage (PHP CLI) in file _example.php_  
+### Usage example (PHP CLI) in file _example.php_  
 This particular example uses [PostgreSQL](https://www.postgresql.org/) PDO connection.
 ```PHP
 <?php
@@ -120,4 +120,28 @@ echo PHP_EOL.PHP_EOL;
 $result = $dbgw -> Gracie(18, 20);
 echo SQLMethods::dump_rs($result);
 echo PHP_EOL.PHP_EOL;
+```
+Here is the modest result  
+```
+C:\ ... \SQLMethods>php example.php
+v: 10
+rn: CXXXIII
+v: 11
+rn: CXXXIV
+v: 12
+rn: CXXXV
+
+v: 15
+rn: CCXLIX
+v: 16
+rn: CCL
+v: 17
+rn: CCLI
+
+v: 18
+rn: CCCLXIII
+v: 19
+rn: CCCLXIV
+v: 20
+rn: CCCLXV
 ```

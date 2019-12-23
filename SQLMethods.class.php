@@ -53,6 +53,7 @@ class SQLMethods
       if (preg_match(self::QUERY_DEF_HEADER_RX, $line, $result))
       {
         $query_parameters = json_decode(trim($result[1]));
+        if (json_last_error() !== JSON_ERROR_NONE) $query_parameters = (object)[];
         if (!isset($query_parameters->returns_value)) $query_parameters->returns_value = false;
 
         $query_parameters_keys = array_keys((array)$query_parameters); sort($query_parameters_keys);

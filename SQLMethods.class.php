@@ -53,16 +53,20 @@ class SQLMethods
       if (preg_match(self::QUERY_DEF_HEADER_RX, $line, $result))
       {
         $query_parameters = json_decode(trim($result[1]));
+        if (!isset($query_parameters->returns_value)) $query_parameters->returns_value = false;
+
+        $query_parameters_keys = array_keys((array)$query_parameters); sort($query_parameters_keys);
         if
         (
-          is_null($query_parameters) || (count((array) $query_parameters) != 2) ||
-          !isset($query_parameters->name) || !isset($query_parameters->param_mode) ||
+          !($query_parameters_keys === ['name', 'param_mode', 'returns_value']) ||
           !preg_match(self::QUERY_IDENT_RX, $query_parameters->name) ||
-          !preg_match(self::PARAM_MODES_RX, $query_parameters->param_mode)
+          !preg_match(self::PARAM_MODES_RX, $query_parameters->param_mode) ||
+          !is_bool($query_parameters->returns_value)
         )
         {
           throw new Exception("SQLMethods: Bad query definition header, file '{$sql_filename}', line {$linenumber}");
         }
+
         if (!is_null($query_name))
         {
           $this->qlist->{strtoupper($query_name)} = $query_object;
@@ -70,6 +74,7 @@ class SQLMethods
         }
         $query_name = $query_parameters->name;
         $query_object->parameterized = $query_parameters->param_mode;
+        $query_object->returns_value = $query_parameters->returns_value;
         continue;
       }
       if (!is_null($query_name))
@@ -119,7 +124,8 @@ class SQLMethods
         $rs = $this->qlist->{$method}->prepared;
         $rs->execute($arguments);
     }
-    return $rs;
+
+    return $this->qlist->{$method}->returns_value ? $rs->fetchColumn(): $rs;
   }
 
   // For testing & debugging purposes

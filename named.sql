@@ -1,4 +1,4 @@
--- SQLGateway example SQL file
+-- SQLMethods example SQL file
 
 -- Query definition header format:
 -- Single line starts with --! followed by metadata in JSON

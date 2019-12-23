@@ -85,6 +85,7 @@ This particular example uses [PostgreSQL](https://www.postgresql.org/) PDO conne
 ```PHP
 <?php
 // SQLMethods example/unit test
+
 // Use your preferred class loading mechanism
 require ('SQLMethods.class.php');
 
@@ -97,23 +98,22 @@ $conn = new PDO (
 
 /* There are different ways to build SQLMethod instances and inport SQL files 
 // Use a single SQL file
-$dbgw = new SQLMethods('example.sql', $conn);
-
+$dbgw = new SQLMethods('sql/example.sql', $conn);
 // Use many SQL files
 $dbgw = new SQLMethods;
 $dbgw -> connection($conn);
-$dbgw -> import('none.sql');
-$dbgw -> import('named.sql');
-$dbgw -> import('positional.sql');
-$dbgw -> import('value.sql');
+$dbgw -> import('sql/none.sql');
+$dbgw -> import('sql/named.sql');
+$dbgw -> import('sql/positional.sql');
+$dbgw -> import('sql/value.sql');
 */
 
 // Use many SQL files w/ method chaining
 $dbgw = SQLMethods::createInstance($conn)
- -> import('none.sql')
- -> import('named.sql')
- -> import('positional.sql')
- -> import('value.sql');
+ -> import('sql/none.sql')
+ -> import('sql/named.sql')
+ -> import('sql/positional.sql')
+ -> import('sql/value.sql');
  
 // call a method with no arguments
 $result = $dbgw -> Ruffus();

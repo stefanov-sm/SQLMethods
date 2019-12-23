@@ -97,8 +97,10 @@ $conn = new PDO (
 );
 
 /* There are different ways to build SQLMethod instances and inport SQL files 
+
 // Use a single SQL file
 $dbgw = new SQLMethods('sql/example.sql', $conn);
+
 // Use many SQL files
 $dbgw = new SQLMethods;
 $dbgw -> connection($conn);

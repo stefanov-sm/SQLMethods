@@ -50,8 +50,8 @@ SELECT to_char(now() - ?::interval, 'YYYY-MM-DD"T"HH24:MI:SS');
 - The value of "returns_value" must be `true` or `false`.
 - Real-life queries may be of any size and complexity.
 - Block comments are not supported.
-- If "returns_value" is missing is false then methods return [PDOStatement](https://www.php.net/manual/en/class.pdostatement.php) objects.  
-- If "returns_value" is missing is true then methods retun a single value. 
+- If "returns_value" is missing is false then the methods return [PDOStatement](https://www.php.net/manual/en/class.pdostatement.php) objects.  
+- If "returns_value" is true then the methods retun a single value. 
 ### SQLMethods constructor
 
 A SQLMethods object is created by instantiating the SQLMethods class.  
@@ -84,18 +84,18 @@ Parses and imports SQL method definitions.
 This particular example uses [PostgreSQL](https://www.postgresql.org/) PDO connection.
 ```PHP
 <?php
-// SQLMethods example
-
+// SQLMethods example/unit test
 // Use your preferred class loading mechanism
 require ('SQLMethods.class.php');
 
 // Obtain a PDO connection in your preferred way
 $conn = new PDO (
-    '<your connection string>', '<username>', '<password>',
+    'pgsql:host=<host>;port=<port>;dbname=<database name>',
+    '<user>', '<password>',
     [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_EMULATE_PREPARES => FALSE]
 );
 
-/* There are different ways to build SQLMethod instances and inport SQL files
+/* There are different ways to build SQLMethod instances and inport SQL files 
 // Use a single SQL file
 $dbgw = new SQLMethods('example.sql', $conn);
 
@@ -105,26 +105,34 @@ $dbgw -> connection($conn);
 $dbgw -> import('none.sql');
 $dbgw -> import('named.sql');
 $dbgw -> import('positional.sql');
+$dbgw -> import('value.sql');
 */
+
 // Use many SQL files w/ method chaining
 $dbgw = SQLMethods::createInstance($conn)
  -> import('none.sql')
  -> import('named.sql')
- -> import('positional.sql');
-
-// call a method with no parameters
+ -> import('positional.sql')
+ -> import('value.sql');
+ 
+// call a method with no arguments
 $result = $dbgw -> Ruffus();
 echo SQLMethods::dump_rs($result);
 echo PHP_EOL.PHP_EOL;
 
-// call a method with named parameters
+// call a method with named arguments
 $result = $dbgw -> Buster([':hi' => 17, ':lo' => 15]);
 echo SQLMethods::dump_rs($result);
 echo PHP_EOL.PHP_EOL;
 
-// call a method with positional parameters
+// call a method with positional arguments
 $result = $dbgw -> Gracie(18, 20);
 echo SQLMethods::dump_rs($result);
+echo PHP_EOL.PHP_EOL;
+
+// call a method with positional arguments that returns a single value
+$result = $dbgw -> ISOTime('P2D');
+echo $result;
 echo PHP_EOL.PHP_EOL;
 ```
 Query names have become method names.  

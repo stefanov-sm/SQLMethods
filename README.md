@@ -141,6 +141,7 @@ Query/method names and `param_mode` values are case-insensitive as it is common 
 $result = $dbgw -> Ruffus();
 $result = $dbgw -> Buster([':hi' => 17, ':lo' => 15]);
 $result = $dbgw -> Gracie(18, 20);
+$result = $dbgw -> ISOTime('P2D');
 ```
 And here is the modest result.  
 ```
@@ -165,4 +166,6 @@ v: 19
 rn: CCCLXIV
 v: 20
 rn: CCCLXV
+
+2019-12-21T23:42:54
 ```

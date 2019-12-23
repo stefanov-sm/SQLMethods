@@ -47,11 +47,11 @@ SELECT to_char(now() - ?::interval, 'YYYY-MM-DD"T"HH24:MI:SS');
 - Each query definition header consists of a single line that starts with `--!` prefix followed by a JSON expression with these mandatory attributes: `"name"`, `"param_mode"` and an optional one `"returns_value"`.
 - The value of "param_mode" must be one of `"NONE"`, `"NAMED"` or `"POSITIONAL"`. The semantics of those are best seen in the example.
 - The value of "name" must be a valid K&R-style identifier.
-- The value of "returns_value" must be `true` or `false`.
+- The value of "returns_value" must be `true` or `false` (default).
 - Real-life queries may be of any size and complexity.
 - Block comments are not supported.
-- If "returns_value" is missing is false then the methods return [PDOStatement](https://www.php.net/manual/en/class.pdostatement.php) objects.  
-- If "returns_value" is true then the methods retun a single value. 
+- If "returns_value" is missing or false then the methods return [PDOStatement](https://www.php.net/manual/en/class.pdostatement.php) objects (resultsets).  
+- If "returns_value" is true then the methods retun a single value by invoking fetchColumn() on the resultset. 
 ### SQLMethods constructor
 
 A SQLMethods object is created by instantiating the SQLMethods class.  

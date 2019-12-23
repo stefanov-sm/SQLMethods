@@ -50,7 +50,7 @@ SELECT to_char(now() - ?::interval, 'YYYY-MM-DD"T"HH24:MI:SS');
 - The value of "returns_value" must be `true` or `false` (default).
 - Real-life queries may be of any size and complexity.
 - Block comments are not supported.
-- If "returns_value" is missing or false then the methods return [PDOStatement](https://www.php.net/manual/en/class.pdostatement.php) objects (resultsets).  
+- If "returns_value" is missing or false then the methods return a [PDOStatement](https://www.php.net/manual/en/class.pdostatement.php) object (resultset).  
 - If "returns_value" is true then the methods retun a single value by invoking fetchColumn() on the resultset. 
 ### SQLMethods constructor
 

@@ -1,0 +1,31 @@
+https://clients.mbm-express.net/restsvc/servicing_office/
+
+{
+ "settings":
+  {
+   "token": "vb8FK47YZgtqJdKdUYMtJnLz",
+   "query": "queries/servicing_office.sql",
+   "response": "row"
+  },
+ "arguments": 
+ {
+ 		"postcode": {"type": "text", "pattern": "/^\\d{4}$/"}
+ }
+}
+
+{
+	"settings":
+	{
+	    "token": "B9ERhpBg9wwGm8bf6knt7qug",
+		"response": "table",
+		"query": "queries/settlement.details.sql"
+	},
+	"arguments":
+	{
+		"settlement": {"type": "text", "pattern": "/^[^'\\/\\-\\*]{4,}$/"}
+	}
+}
+
+
+https://clients.mbm-express.net/restsvc/offices
+vb8FK47YZgtqJdKdUYMtJnLz

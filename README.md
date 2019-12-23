@@ -70,14 +70,14 @@ Static method. Creates and returns a SQLMethods instance object that can be chai
 Sets the PDO connection  
 `SQLMethods::connection(<PDO connection>)`
  - `<PDO connection>` - existing PDO connection object
- - returns the object instance that an be chained
+ - returns the object instance that can be chained
 
 ### SQL file importer
 
 Parses and imports SQL method definitions.   
 `SQLMethods::import(<filename>)`
  - `<filename>` - existing SQL file
- - returns the object instance that an be chained
+ - returns the object instance that can be chained
 
 
 ### Usage example (PHP CLI) in file _example.php_  

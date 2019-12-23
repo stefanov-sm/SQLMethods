@@ -11,9 +11,10 @@ Individual queries have names (Ruffus, Buster, Gracie in the example below) that
 
 -- Query definition header format:
 -- Single line starts with --! followed by metadata in JSON
--- Metadata JSON format: {"name":<query name>, "param_mode":<parameters mode>}
+-- Metadata JSON format: {"name":<query name>, "param_mode":<parameters mode> [,"returns_value":<return mode>]}
 -- <query name> is a valid K&R indentifier string that becomes a method name;
 -- <parameters mode> is one of "NONE", "NAMED" or "POSITIONAL"
+-- <return mode> (optional) is true or false (default)
 -- See the example below
 
 -- No parameters
@@ -30,21 +31,27 @@ SELECT v, to_char(234 + v, 'FMRN')
 --! {"name":"Gracie", "param_mode":"POSITIONAL"}
 SELECT v, to_char(345 + v, 'FMRN')
  FROM generate_series (?, ?, 1) t(v);
+ 
+-- Positional parameters, returns a single value
+--! {"name":"ISOTime", "param_mode":"POSITIONAL", "returns_value": true}
+SELECT to_char(now() - ?::interval, 'YYYY-MM-DD"T"HH24:MI:SS');
 ```
 - Note these query definition header lines that provide a name and parameters' mode value to each query:  
 ```
 --! {"name":"RUFFUS", "param_mode":"NONE"}  
 --! {"name":"Buster", "param_mode":"NAMED"}  
 --! {"name":"Gracie", "param_mode":"POSITIONAL"}
+--! {"name":"ISOTime", "param_mode":"POSITIONAL", "returns_value": true}
 ```
 
-- Each query definition header consists of a single line that starts with `--!` prefix followed by a JSON expression with exactly these attributes: `"name"` and `"param_mode"`.
+- Each query definition header consists of a single line that starts with `--!` prefix followed by a JSON expression with these mandatory attributes: `"name"`, `"param_mode"` and an optional one `"returns_value"`.
 - The value of "param_mode" must be one of `"NONE"`, `"NAMED"` or `"POSITIONAL"`. The semantics of those are best seen in the example.
 - The value of "name" must be a valid K&R-style identifier.
+- The value of "returns_value" must be `true` or `false`.
 - Real-life queries may be of any size and complexity.
 - Block comments are not supported.
-- Methods return [PDOStatement](https://www.php.net/manual/en/class.pdostatement.php) objects.  
-
+- If "returns_value" is missing is false then methods return [PDOStatement](https://www.php.net/manual/en/class.pdostatement.php) objects.  
+- If "returns_value" is missing is true then methods retun a single value. 
 ### SQLMethods constructor
 
 A SQLMethods object is created by instantiating the SQLMethods class.  

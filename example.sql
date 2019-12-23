@@ -22,3 +22,7 @@ SELECT v, to_char(234 + v, 'FMRN') AS rn
 --! {"name":"Gracie", "param_mode":"POSITIONAL"}
 SELECT v, to_char(345 + v, 'FMRN') AS rn
  FROM generate_series (?, ?, 1) AS t(v);
+
+-- Positional parameters, returns a single value
+--! {"name":"ISOTime", "param_mode":"POSITIONAL", "returns_value": true}
+SELECT to_char(now() - ?::interval, 'YYYY-MM-DD"T"HH24:MI:SS');

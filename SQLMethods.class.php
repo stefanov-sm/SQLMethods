@@ -74,7 +74,7 @@ class SQLMethods
         }
         $query_name = $query_parameters->name;
         $query_object->parameterized = $query_parameters->param_mode;
-        $query_object->returns_value = $query_parameters->returns_value;
+        $query_object->returns_value = $query_parameters->returns_value; 
         continue;
       }
       if (!is_null($query_name))

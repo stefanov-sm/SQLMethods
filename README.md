@@ -4,7 +4,7 @@ Clean separation of concerns inspired by [this](https://www.youtube.com/watch?v=
 All that matters is there in the PHP CLI example.
 
 ### File _example.sql_ - the queries that become methods
-Individual queries have names (Ruffus, Buster, Gracie in the example below) that become methods' names.
+Individual queries have names (Ruffus, Buster, Gracie, ISOTime in the example below) that become methods' names.
 
 ```SQL
 -- SQLMethods example SQL file

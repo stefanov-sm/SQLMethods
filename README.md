@@ -55,7 +55,7 @@ SELECT to_char(now() - ?::interval, 'YYYY-MM-DD"T"HH24:MI:SS');
 ### SQLMethods constructor
 
 A SQLMethods object is created by instantiating the SQLMethods class.  
-`SQLMethods::__construct(<sql file name>, optional <PDO connection>)`
+`SQLMethods::__construct(optional <sql file name>, optional <PDO connection>)`
  - `<sql file name>` - name of the SQL file (as the one above)
  - `<PDO connection>` - existing PDO connection object
 

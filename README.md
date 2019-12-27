@@ -133,7 +133,7 @@ echo SQLMethods::dump_rs($result);
 echo PHP_EOL.PHP_EOL;
 
 // call a method with positional arguments that returns a single value
-$result = $dbgw -> ISOTime('P2D');
+$result = $dbgw -> ISOTime('2 days');
 echo $result;
 echo PHP_EOL.PHP_EOL;
 ```

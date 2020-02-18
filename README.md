@@ -51,7 +51,8 @@ SELECT to_char(now() - ?::interval, 'YYYY-MM-DD"T"HH24:MI:SS');
 - Real-life queries may be of any size and complexity.
 - Block comments are not supported.
 - If "returns_value" is missing or false then the methods return a [PDOStatement](https://www.php.net/manual/en/class.pdostatement.php) object (resultset).  
-- If "returns_value" is true then the methods retun a single value by invoking `fetchColumn()` on the resultset. 
+- If "returns_value" is true then the methods retun a single value by invoking `fetchColumn()` on the resultset.
+- [This]() schema contains a strict definition of JSON expression 
 ### SQLMethods constructor
 
 A SQLMethods object is created by instantiating the SQLMethods class.  

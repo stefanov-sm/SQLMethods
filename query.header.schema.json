@@ -5,8 +5,8 @@
   "additionalProperties": false,
   "properties":
   {
-    "returns_value": {"type": "boolean"},
     "name": {"type": "string", "pattern": "^[A-Za-z_]\\w+$"},
-    "param_mode": {"type": "string", "enum": ["NONE", "NAMED", "POSITIONAL"]}
+    "param_mode": {"type": "string", "enum": ["NONE", "NAMED", "POSITIONAL"]},
+    "returns_value": {"type": "boolean"}
   }
 }

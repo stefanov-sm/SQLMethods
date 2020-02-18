@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SQLMethods schema",
+  "type": "object",
+  "required": ["name", "param_mode"],
+  "additionalProperties": false,
+  "properties":
+  {
+    "returns_value": {"type": "boolean"},
+    "name": {"type": "string", "pattern": "^[A-Za-z_]\\w+$"},
+    "param_mode": {"type": "string", "enum": ["NONE", "NAMED", "POSITIONAL"]}
+  }
+}
